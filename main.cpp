@@ -23,15 +23,15 @@ static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *use
 }
 
 int main(int argc, char **argv) {
-	int DEEP = std::stoi(argv[1]);
+	int DEPTH = std::stoi(argv[1]);
 	bool isThere;
 	std::string ref, readBuffer;
 	std::vector<std::vector<std::string>> array;
-	array.resize(DEEP + 1);
+	array.resize(DEPTH + 1);
 	array[0].push_back(argv[2]);
 	CURL *curl;
   	CURLcode res;
-	for (int i = 0; i < DEEP; ++i) {
+	for (int i = 0; i < DEPTH; ++i) {
 		for (int j = 0; j < array[i].size(); ++j) {
   			curl = curl_easy_init();
     			curl_easy_setopt(curl, CURLOPT_URL, array[i][j].c_str());
@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
 						ref += readBuffer[k++];
 					}
 					isThere = false;
-					for (int l = 0; l < DEEP + 1; ++l) {
+					for (int l = 0; l < DEPTH + 1; ++l) {
 						for (int k = 0; k < array[l].size(); ++k) {
 							if (array[l][k] == ref) {
 								isThere = true;
