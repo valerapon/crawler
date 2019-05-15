@@ -8,7 +8,8 @@ fedora: <code>sudo dnf install curl</code>
 <code>make</code>  
 ## How to run:  
 <code>./var/main depthLevel reference</code>  
-example: <code>./var/main 5 www.msu.kz</code>
+example:   
+<code>./var/main 5 www.msu.kz</code>
 ## Output example:  
 ```
 ...
